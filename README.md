@@ -26,8 +26,8 @@ pinned: false
 
 - [Legal Agent Codebase](#legal-agent-codebase)
   - [Table of Contents](#table-of-contents)
-- [(DEMO README)](#demo-readme)
   - [About The Project](#about-the-project)
+  - [Video Demo:](#video-demo)
   - [Functionality](#functionality)
   - [Code Structure](#code-structure)
   - [Dependencies](#dependencies)
@@ -37,11 +37,18 @@ pinned: false
   - [Contact](#contact)
   - [License](#license)
 
-# (DEMO README)
 
 ## About The Project
 
 This projects aim to implements a sophisticated document retrieval and question answering system using LangChain, leveraging Google's Gemini-1.5-flash language model and a FAISS vector database.  The system is designed to handle legal queries, providing comprehensive and accurate answers by combining information retrieval from a local knowledge base with web search capabilities when necessary.
+
+## Video Demo:
+<video width="100%" height="auto" controls>
+  <source src="./assets/legal-agent-demo-use.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+
 
 ## Functionality
 
