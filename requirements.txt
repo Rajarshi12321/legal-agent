@@ -1,3 +1,4 @@
+# Core packages and utilities
 beautifulsoup4
 chainlit
 chromadb
@@ -5,27 +6,47 @@ duckduckgo_search==6.3.4
 fastapi
 faiss-cpu
 # flashrank[listwise]
+
+# Google generative AI and related packages
 google-generativeai
-# google-play-scraper
-IPython
+ipython
+python-dotenv
+numpy
+scikit-learn
+# sklearn  # duplicate of scikit-learn
+
+# Jupyter and kernel support
 ipykernel
+
+# LangChain ecosystem (using fixed versions where provided)
 langchain==0.3.7
 langchain-community==0.3.7
 langchain_core
 langchain-docling
 langchain_google_genai==2.0.4
 # langchain_huggingface
+
+# LangGraph and related tooling
 langgraph==0.2.48
 langserve
 langsmith
+
+# Data handling and PDF processing
 pandas>=1.3.6
 pypdf
 PyPDF2
-python-dotenv
 regex
+
+# Web frameworks and display
 streamlit
 # streamlit-feedback
+
+# Unstructured data processing
 unstructured[pdf]==0.7.12
+
+# Optional (commented out; enable if needed)
 # sse_starlette
 # uvicorn
+
+# Install the current project in editable mode
 -e .
