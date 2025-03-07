@@ -65,6 +65,7 @@ from langchain_core.runnables.graph import MermaidDrawMethod
 from langchain_community.tools import DuckDuckGoSearchResults
 from langchain.agents import create_tool_calling_agent
 from langchain.agents import AgentExecutor
+import faiss
 
 
 genai.configure(api_key=GOOGLE_API_KEY)
@@ -82,6 +83,8 @@ class State(TypedDict):
     is_response_sufficient: str
 
 
-faiss_index_path = os.path.abspath(os.path.join("faiss_index"))
+faiss_index_path = os.path.abspath("faiss_index")
 
-print(faiss_index_path)
+
+index = faiss.read_index(os.path.join(faiss_index_path, "index.faiss"))
+print("FAISS - Index type:", type(index))
