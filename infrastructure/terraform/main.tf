@@ -1,39 +1,3 @@
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
-  description = "Allow SSH inbound traffic"
-
-  ingress {
-    description      = "SSH"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"] # Replace with your IP or CIDR range for production
-  }
-
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-}
-
-resource "aws_instance" "main_app_deploy" {
-  ami           = var.ami_os
-  instance_type = "t2.micro"
-  tags = {
-    Name = var.instance_name
-  }
-  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-
-  root_block_device {
-    volume_type           = "gp3"  # Change to the desired volume type, e.g., gp2
-    volume_size           = var.volume_size     # Specify the size in GB
-    delete_on_termination = true   # Set to false if you want to keep the volume after instance termination
-  }
-
-
-}
 
 resource "aws_security_group" "my-custom-security-group" {
   name        = "my-custom-security-group"
@@ -88,6 +52,25 @@ resource "aws_security_group_rule" "custom_443_tcp_ingress" {
   protocol                 = "tcp"
   cidr_blocks              = ["0.0.0.0/0"]
   security_group_id        = aws_security_group.my-custom-security-group.id
+}
+
+
+
+resource "aws_instance" "main_app_deploy" {
+  ami           = var.ami_os
+  instance_type = "t2.micro"
+  tags = {
+    Name = var.instance_name
+  }
+  vpc_security_group_ids = [aws_security_group.my-custom-security-group.id]
+
+  root_block_device {
+    volume_type           = "gp3"  # Change to the desired volume type, e.g., gp2
+    volume_size           = var.volume_size     # Specify the size in GB
+    delete_on_termination = true   # Set to false if you want to keep the volume after instance termination
+  }
+
+
 }
 
 // ... rest of your configuration ...
