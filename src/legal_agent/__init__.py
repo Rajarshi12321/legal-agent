@@ -80,3 +80,8 @@ class State(TypedDict):
     docs: str
     response: str
     is_response_sufficient: str
+
+
+faiss_index_path = os.path.abspath(os.path.join("faiss_index"))
+
+print(faiss_index_path)

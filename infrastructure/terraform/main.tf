@@ -3,12 +3,12 @@ resource "aws_security_group" "my-custom-security-group" {
   name        = "my-custom-security-group"
   description = "Security group for my application"
 
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"] # This is very permissive; restrict as needed
-  }
+  # ingress {
+  #   from_port   = 0
+  #   to_port     = 0
+  #   protocol    = "-1"
+  #   cidr_blocks = ["0.0.0.0/0"] # This is very permissive; restrict as needed
+  # }
 
   egress {
     from_port   = 0

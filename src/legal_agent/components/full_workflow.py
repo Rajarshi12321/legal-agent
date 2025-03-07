@@ -1,4 +1,4 @@
-from legal_agent import State, llm, embeddings, END, START, StateGraph
+from legal_agent import State, llm, embeddings, END, START, StateGraph, faiss_index_path
 
 
 from typing import Dict, TypedDict
@@ -15,7 +15,7 @@ from legal_agent.components.WebSearchAgent import WebSearchAgent
 def faiss_content_retriever(state: State) -> State:
     print("\nEntering faiss_content_retriever")
     # Initialize the retriever with the FAISS index location
-    doc_retriever = DocumentRetriever("faiss_index", embeddings)
+    doc_retriever = DocumentRetriever(faiss_index_path, embeddings)
 
     # Rerank documents based on cosine similarity
     re_ranked_docs = doc_retriever.rerank_documents(state["query"])
